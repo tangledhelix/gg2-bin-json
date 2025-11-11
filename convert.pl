@@ -20,8 +20,14 @@ unless ($fname =~ m/\.bin$/) {
     exit(1);
 }
 
-unless ($fname =~ m|/|) {
-    $fname = "./$fname";
+# To use require we can't pass a bare filename; if that's all we have, then
+# prefix the current directory to it.
+unless ($fname =~ m|/| or $fname =~ m|\\|) {
+    if ($^O eq 'MSWin32') {
+        $fname = ".\\$fname";
+    } else {
+        $fname = "./$fname";
+    }
 }
 require $fname;
 
