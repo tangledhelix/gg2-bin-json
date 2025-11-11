@@ -40,12 +40,21 @@ my $jdata = {
 };
 
 for (keys %::pagenumbers) {
-    $jdata->{pagedetails}->{$_} = {
-        index  => $::pagenumbers{$_}{offset},
-        style  => $::pagenumbers{$_}{style},
-        number => $::pagenumbers{$_}{action},
-        label  => $::pagenumbers{$_}{label}
-    };
+    if ($::pagenumbers{$_}{offset} or $::pagenumbers{$_}{offset} or $::pagenumbers{$_}{offset} or $::pagenumbers{$_}{offset}) {
+        $jdata->{pagedetails}->{$_} = {};
+    }
+    if ($::pagenumbers{$_}{offset}) {
+        $jdata->{pagedetails}->{$_}{index} = $::pagenumbers{$_}{offset};
+    }
+    if ($::pagenumbers{$_}{style}) {
+        $jdata->{pagedetails}->{$_}{style} = $::pagenumbers{$_}{style};
+    }
+    if ($::pagenumbers{$_}{action}) {
+        $jdata->{pagedetails}->{$_}{number} = $::pagenumbers{$_}{action};
+    }
+    if ($::pagenumbers{$_}{label}) {
+        $jdata->{pagedetails}->{$_}{label} = $::pagenumbers{$_}{label};
+    }
 }
 
 open(FH, '>', $jname) or die $!;
