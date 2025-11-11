@@ -49,7 +49,7 @@ for (keys %::pagenumbers) {
 }
 
 open(FH, '>', $jname) or die $!;
-print FH JSON->new->encode($jdata);
+print FH JSON->new->canonical->pretty->encode($jdata);
 close(FH);
 
 print "converted file: $jname\n";
