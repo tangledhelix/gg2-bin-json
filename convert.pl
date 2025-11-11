@@ -27,7 +27,6 @@ require $fname;
 
 my $jname = $fname;
 $jname =~ s/\.bin$/.json/;
-print "$jname\n";
 
 my $jdata = {
   'languages' => $::booklang,
