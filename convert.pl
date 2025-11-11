@@ -43,7 +43,7 @@ for (keys %::pagenumbers) {
     $jdata->{pagedetails}->{$_} = {
         index => $::pagenumbers{$_}{offset},
         label => $::pagenumbers{$_}{label}  ? $::pagenumbers{$_}{label}  : '',
-        style => $::pagenumbers{$_}{style}  ? $::pagenumbers{$_}{style}  : 'Arabic',
+        style => $::pagenumbers{$_}{style}  ? $::pagenumbers{$_}{style}  : '"',
         number => $::pagenumbers{$_}{action} ? $::pagenumbers{$_}{action} : '+1'
     };
 }
